@@ -1,132 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#285EA7" />
-  <title>Torquato Imóveis — Admin</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--primary:#285EA7;--primary-dark:#1f4b87;--bg:#f4f7fb;--panel:#fff;--text:#152033;--muted:#7d8898;--line:#e6ebf2;--success:#1f9d65;--warn:#d88a16;--danger:#d94b4b;--shadow:0 14px 40px rgba(30,55,90,.08)}
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;background:#fff;border-right:1px solid var(--line);padding:26px 18px;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;padding:0 10px 26px}.brand-mark{width:42px;height:42px;border-radius:14px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800}.brand strong{display:block}.brand small{color:var(--muted)}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;text-align:left;padding:13px 14px;border-radius:12px;color:#5d6878;font-weight:600}.nav button.active,.nav button:hover{background:#edf4fc;color:var(--primary)}.nav button span{display:inline-block;width:24px}.side-bottom{margin-top:auto;padding:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.main{min-width:0}.topbar{height:76px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:20}.topbar h1{font-size:20px;margin:0}.top-actions{display:flex;align-items:center;gap:10px}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:700}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}.btn-light{background:#fff;color:var(--text);border:1px solid var(--line)}.content{padding:28px}.view{display:none}.view.active{display:block}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.metric{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.metric small{color:var(--muted);font-weight:600}.metric strong{font-size:30px;display:block;margin:8px 0 4px}.metric em{font-style:normal;color:var(--success);font-size:12px}.grid-2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.panel-head h2{font-size:17px;margin:0}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}.table th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em}.badge{display:inline-flex;padding:6px 9px;border-radius:999px;font-size:11px;font-weight:700}.badge.live{background:#e8f7ef;color:var(--success)}.badge.draft{background:#fff5e5;color:var(--warn)}.badge.off{background:#f2f3f5;color:#7d8898}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.section-title h2{margin:0;font-size:24px}.toolbar{display:flex;gap:10px;margin-bottom:16px}.search{flex:1;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 13px}.properties-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.property{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.property img{width:100%;height:160px;object-fit:cover}.property-body{padding:15px}.property h3{font-size:15px;margin:0 0 8px}.property p{color:var(--muted);font-size:12px;margin:0 0 10px}.property .price{font-weight:800;color:var(--primary)}.property-actions{display:flex;gap:8px;margin-top:13px}.small-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:12px;font-weight:700}.lead-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.column{background:#eef2f7;border-radius:16px;padding:12px;min-height:420px}.column h3{font-size:13px;margin:3px 3px 10px}.lead{background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;border:1px solid var(--line)}.lead strong{font-size:13px}.lead p{font-size:12px;color:var(--muted);margin:6px 0}.lead select{width:100%;border:1px solid var(--line);border-radius:8px;padding:7px;font-size:11px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;background:#fff}.field.full{grid-column:1/-1}.field textarea{min-height:100px;resize:vertical}.settings-block{max-width:760px}.modal{position:fixed;inset:0;background:rgba(10,25,45,.42);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}.modal.show{display:flex}.modal-card{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:22px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modal-head h3{margin:0}.close{border:0;background:#f1f4f8;width:34px;height:34px;border-radius:10px}.empty{padding:28px;text-align:center;color:var(--muted)}.toast{position:fixed;right:22px;bottom:22px;background:#152033;color:#fff;padding:12px 16px;border-radius:12px;opacity:0;transform:translateY(10px);transition:.2s;z-index:200}.toast.show{opacity:1;transform:none}@media(max-width:1100px){.cards{grid-template-columns:1fr 1fr}.properties-grid{grid-template-columns:1fr 1fr}.lead-board{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}}@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{height:auto;position:static;border-right:0}.nav{grid-template-columns:repeat(3,1fr)}.nav button{font-size:12px}.side-bottom{display:none}.topbar{position:static}.cards,.properties-grid,.lead-board,.form-grid{grid-template-columns:1fr}.content{padding:18px}.field.full{grid-column:auto}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#285EA7" />
+<title>Torquato Imóveis — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#285EA7;--primary-dark:#1f4b87;--primary-soft:#edf4fc;--bg:#f4f7fb;--panel:#fff;--text:#152033;--muted:#7d8898;--line:#e6ebf2;--success:#1f9d65;--warn:#d88a16;--danger:#d94b4b;--shadow:0 14px 40px rgba(30,55,90,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}.app{display:grid;grid-template-columns:258px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;background:#fff;border-right:1px solid var(--line);padding:24px 18px;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;padding:0 10px 26px}.brand-mark{width:44px;height:44px;border-radius:14px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800}.brand strong{display:block;letter-spacing:.02em}.brand small{color:var(--muted)}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;text-align:left;padding:13px 14px;border-radius:12px;color:#5d6878;font-weight:650}.nav button.active,.nav button:hover{background:var(--primary-soft);color:var(--primary)}.nav button span{display:inline-block;width:25px}.side-bottom{margin-top:auto;padding:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.55}.main{min-width:0}.topbar{height:76px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:20}.topbar h1{font-size:20px;margin:0}.top-actions{display:flex;align-items:center;gap:10px}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:750}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}.btn-light{background:#fff;color:var(--text);border:1px solid var(--line)}.btn-danger{background:#fff0f0;color:var(--danger);border:1px solid #ffd9d9}.content{padding:28px}.view{display:none}.view.active{display:block}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.metric{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.metric small{color:var(--muted);font-weight:650}.metric strong{font-size:30px;display:block;margin:8px 0 4px}.metric em{font-style:normal;color:var(--success);font-size:12px}.grid-2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;gap:12px}.panel-head h2{font-size:17px;margin:0}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}.table th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em}.badge{display:inline-flex;padding:6px 9px;border-radius:999px;font-size:11px;font-weight:750;white-space:nowrap}.badge.live{background:#e8f7ef;color:var(--success)}.badge.draft{background:#fff5e5;color:var(--warn)}.badge.off{background:#f2f3f5;color:#7d8898}.badge.blue{background:var(--primary-soft);color:var(--primary)}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:12px}.section-title h2{margin:0;font-size:24px}.toolbar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}.search{flex:1;min-width:180px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 13px;outline:none}.search:focus,.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(40,94,167,.1)}.properties-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.property{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 26px rgba(30,55,90,.05)}.property-cover{position:relative}.property img{width:100%;height:170px;object-fit:cover;display:block}.property-count{position:absolute;right:10px;bottom:10px;background:rgba(14,27,46,.82);color:white;padding:6px 8px;border-radius:9px;font-size:11px}.property-body{padding:15px}.property h3{font-size:15px;margin:10px 0 8px}.property p{color:var(--muted);font-size:12px;margin:0 0 10px}.property .price{font-weight:800;color:var(--primary)}.property-actions{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap}.small-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:12px;font-weight:700}.small-btn:hover{border-color:#cbd7e8;background:#f9fbfd}.lead-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.column{background:#eef2f7;border-radius:16px;padding:12px;min-height:450px}.column h3{font-size:13px;margin:3px 3px 10px}.lead{background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;border:1px solid var(--line)}.lead strong{font-size:13px}.lead p{font-size:12px;color:var(--muted);margin:6px 0}.lead select{width:100%;border:1px solid var(--line);border-radius:8px;padding:7px;font-size:11px;background:white}.lead-actions{display:flex;gap:6px;margin-top:9px}.lead-actions button{flex:1}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;background:#fff;outline:none}.field.full{grid-column:1/-1}.field textarea{min-height:100px;resize:vertical}.settings-block{max-width:900px}.modal{position:fixed;inset:0;background:rgba(10,25,45,.46);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}.modal.show{display:flex}.modal-card{width:min(900px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:22px;padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.2)}.modal-card.lead-modal{width:min(600px,100%)}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:10px}.modal-head h3{margin:0}.close{border:0;background:#f1f4f8;width:34px;height:34px;border-radius:10px}.empty{padding:28px;text-align:center;color:var(--muted)}.toast{position:fixed;right:22px;bottom:22px;background:#152033;color:#fff;padding:12px 16px;border-radius:12px;opacity:0;transform:translateY(10px);transition:.2s;z-index:200}.toast.show{opacity:1;transform:none}.steps{display:flex;gap:8px;margin-bottom:18px;overflow:auto}.step{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:9px 13px;font-size:12px;font-weight:750;white-space:nowrap}.step.active{background:var(--primary);border-color:var(--primary);color:white}.form-step{display:none}.form-step.active{display:block}.gallery-box{border:1px dashed #bfcde0;border-radius:14px;padding:14px;background:#f9fbfe}.gallery-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:8px}.gallery-list{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.gallery-item{position:relative;border-radius:10px;overflow:hidden;background:#eaf0f8;aspect-ratio:1.3}.gallery-item img{width:100%;height:100%;object-fit:cover}.gallery-item button{position:absolute;right:5px;top:5px;border:0;border-radius:8px;background:rgba(20,30,45,.8);color:white;width:25px;height:25px}.helper{font-size:11px;color:var(--muted);line-height:1.5;margin-top:6px}.region-row{display:flex;align-items:center;justify-content:space-between;padding:13px 5px;border-bottom:1px solid var(--line);gap:12px}.region-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.switch{position:relative;width:42px;height:24px;background:#d7dee8;border-radius:999px;cursor:pointer;transition:.2s}.switch.on{background:var(--primary)}.switch:after{content:"";position:absolute;width:18px;height:18px;background:#fff;border-radius:50%;top:3px;left:3px;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}.switch.on:after{left:21px}.note{background:#fff8e8;border:1px solid #f6e4b5;color:#735b22;padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.55;margin-bottom:16px}.kicker{font-size:12px;color:var(--muted);margin:0 0 4px}.lead-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.lead-detail-grid div{background:#f7f9fc;border-radius:12px;padding:12px}.lead-detail-grid small{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}.lead-detail-grid strong{font-size:13px}@media(max-width:1100px){.cards{grid-template-columns:1fr 1fr}.properties-grid{grid-template-columns:1fr 1fr}.lead-board{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}}@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{height:auto;position:static;border-right:0}.nav{grid-template-columns:repeat(3,1fr)}.nav button{font-size:12px}.side-bottom{display:none}.topbar{position:static;padding:0 16px}.top-actions .btn-light{display:none}.cards,.properties-grid,.lead-board,.form-grid,.lead-detail-grid{grid-template-columns:1fr}.content{padding:18px}.field.full{grid-column:auto}.gallery-list{grid-template-columns:1fr 1fr}.section-title{align-items:flex-start}.section-title .btn{white-space:nowrap}}
+</style>
 </head>
 <body>
 <div class="app">
-  <aside class="sidebar">
-    <div class="brand"><div class="brand-mark">T</div><div><strong>TORQUATO</strong><small>Admin imobiliário</small></div></div>
-    <nav class="nav">
-      <button class="active" data-view="dashboard"><span>⌂</span>Dashboard</button>
-      <button data-view="imoveis"><span>▦</span>Imóveis</button>
-      <button data-view="leads"><span>◎</span>Leads</button>
-      <button data-view="regioes"><span>⌖</span>Regiões</button>
-      <button data-view="config"><span>⚙</span>Configurações</button>
-    </nav>
-    <div class="side-bottom">MVP administrativo • dados salvos neste navegador até a conexão com Supabase.</div>
-  </aside>
-  <main class="main">
-    <header class="topbar"><h1 id="pageTitle">Dashboard</h1><div class="top-actions"><button class="btn btn-light" onclick="window.open('https://torquato-imoveis.vercel.app','_blank')">Ver site</button><button class="btn btn-primary" id="quickAdd">+ Novo imóvel</button></div></header>
-    <div class="content">
-      <section class="view active" id="dashboard">
-        <div class="cards">
-          <div class="metric"><small>Imóveis cadastrados</small><strong id="mProperties">0</strong><em>base ativa</em></div>
-          <div class="metric"><small>Publicados</small><strong id="mLive">0</strong><em>visíveis no site</em></div>
-          <div class="metric"><small>Leads</small><strong id="mLeads">0</strong><em>contatos recebidos</em></div>
-          <div class="metric"><small>Visitas marcadas</small><strong id="mVisits">0</strong><em>oportunidades quentes</em></div>
-        </div>
-        <div class="grid-2">
-          <div class="panel"><div class="panel-head"><h2>Imóveis recentes</h2><button class="small-btn" data-go="imoveis">Ver todos</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Imóvel</th><th>Status</th><th>Valor</th></tr></thead><tbody id="recentProperties"></tbody></table></div></div>
-          <div class="panel"><div class="panel-head"><h2>Leads recentes</h2><button class="small-btn" data-go="leads">Ver funil</button></div><div id="recentLeads"></div></div>
-        </div>
-      </section>
-
-      <section class="view" id="imoveis">
-        <div class="section-title"><h2>Imóveis</h2><button class="btn btn-primary" id="addProperty">+ Cadastrar imóvel</button></div>
-        <div class="toolbar"><input class="search" id="propertySearch" placeholder="Buscar por título, bairro ou referência..."><select class="search" id="statusFilter" style="max-width:180px"><option value="all">Todos os status</option><option value="Publicado">Publicado</option><option value="Rascunho">Rascunho</option><option value="Inativo">Inativo</option></select></div>
-        <div class="properties-grid" id="propertiesGrid"></div>
-      </section>
-
-      <section class="view" id="leads">
-        <div class="section-title"><h2>Leads</h2><button class="btn btn-light" id="seedLead">+ Lead teste</button></div>
-        <div class="lead-board" id="leadBoard"></div>
-      </section>
-
-      <section class="view" id="regioes">
-        <div class="section-title"><h2>Regiões e bairros</h2><button class="btn btn-primary" id="addRegion">+ Adicionar região</button></div>
-        <div class="panel"><div id="regionsList"></div></div>
-      </section>
-
-      <section class="view" id="config">
-        <div class="section-title"><h2>Configurações da imobiliária</h2></div>
-        <div class="panel settings-block"><div class="form-grid">
-          <div class="field"><label>Nome da imobiliária</label><input id="cfgName" value="Torquato Imóveis"></div>
-          <div class="field"><label>CRECI</label><input id="cfgCreci" value="CRECI-PJ: 2110"></div>
-          <div class="field"><label>WhatsApp</label><input id="cfgWhatsapp" placeholder="55 77 99999-9999"></div>
-          <div class="field"><label>Instagram</label><input id="cfgInstagram" placeholder="@torquatoimoveis"></div>
-          <div class="field full"><label>Endereço</label><input id="cfgAddress" placeholder="Endereço da imobiliária"></div>
-          <div class="field full"><label>Texto institucional</label><textarea id="cfgAbout">Curadoria, proximidade e negociação segura.</textarea></div>
-        </div><div style="margin-top:16px"><button class="btn btn-primary" id="saveSettings">Salvar configurações</button></div></div>
-      </section>
-    </div>
-  </main>
+<aside class="sidebar">
+<div class="brand"><div class="brand-mark">T</div><div><strong>TORQUATO</strong><small>Admin imobiliário</small></div></div>
+<nav class="nav">
+<button class="active" data-view="dashboard"><span>⌂</span>Dashboard</button>
+<button data-view="imoveis"><span>▦</span>Imóveis</button>
+<button data-view="leads"><span>◎</span>Leads</button>
+<button data-view="regioes"><span>⌖</span>Regiões</button>
+<button data-view="config"><span>⚙</span>Configurações</button>
+</nav>
+<div class="side-bottom">Versão de validação • dados salvos neste navegador. Banco, autenticação e storage entram depois que o fluxo do painel estiver aprovado.</div>
+</aside>
+<main class="main">
+<header class="topbar"><h1 id="pageTitle">Dashboard</h1><div class="top-actions"><button class="btn btn-light" onclick="window.open('https://torquato-imoveis.vercel.app','_blank')">Ver site</button><button class="btn btn-primary" id="quickAdd">+ Novo imóvel</button></div></header>
+<div class="content">
+<section class="view active" id="dashboard">
+<div class="note">Modo de validação: alterações feitas aqui ficam apenas neste navegador. Isso é intencional nesta etapa para fechar o painel antes da integração com o banco.</div>
+<div class="cards">
+<div class="metric"><small>Imóveis cadastrados</small><strong id="mProperties">0</strong><em>base ativa</em></div>
+<div class="metric"><small>Publicados</small><strong id="mLive">0</strong><em>prontos para o site</em></div>
+<div class="metric"><small>Leads</small><strong id="mLeads">0</strong><em>contatos recebidos</em></div>
+<div class="metric"><small>Visitas marcadas</small><strong id="mVisits">0</strong><em>oportunidades quentes</em></div>
 </div>
-
-<div class="modal" id="propertyModal"><div class="modal-card"><div class="modal-head"><h3 id="modalTitle">Novo imóvel</h3><button class="close" id="closeModal">×</button></div><form id="propertyForm"><input type="hidden" id="propertyId"><div class="form-grid">
-  <div class="field full"><label>Título</label><input id="pTitle" required placeholder="Ex: Casa moderna no Boa Vista"></div>
-  <div class="field"><label>Referência</label><input id="pRef" placeholder="TQ007"></div>
-  <div class="field"><label>Status</label><select id="pStatus"><option>Publicado</option><option>Rascunho</option><option>Inativo</option></select></div>
-  <div class="field"><label>Finalidade</label><select id="pPurpose"><option>Venda</option><option>Aluguel</option></select></div>
-  <div class="field"><label>Tipo</label><select id="pType"><option>Casa</option><option>Apartamento</option><option>Terreno</option><option>Comercial</option></select></div>
-  <div class="field"><label>Bairro / Região</label><input id="pRegion" placeholder="Boa Vista"></div>
-  <div class="field"><label>Valor</label><input id="pPrice" type="number" min="0" placeholder="890000"></div>
-  <div class="field"><label>Quartos</label><input id="pRooms" type="number" min="0"></div>
-  <div class="field"><label>Banheiros</label><input id="pBaths" type="number" min="0"></div>
-  <div class="field"><label>Vagas</label><input id="pParking" type="number" min="0"></div>
-  <div class="field full"><label>URL da foto principal</label><input id="pImage" placeholder="https://..."></div>
-  <div class="field full"><label>Descrição</label><textarea id="pDescription"></textarea></div>
-  <div class="field"><label><input type="checkbox" id="pFeatured" style="width:auto"> Marcar como destaque</label></div>
-</div><div style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px"><button type="button" class="btn btn-light" id="cancelModal">Cancelar</button><button class="btn btn-primary" type="submit">Salvar imóvel</button></div></form></div></div>
+<div class="grid-2">
+<div class="panel"><div class="panel-head"><h2>Imóveis recentes</h2><button class="small-btn" data-go="imoveis">Ver todos</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Imóvel</th><th>Status</th><th>Valor</th></tr></thead><tbody id="recentProperties"></tbody></table></div></div>
+<div class="panel"><div class="panel-head"><h2>Leads recentes</h2><button class="small-btn" data-go="leads">Ver funil</button></div><div id="recentLeads"></div></div>
+</div>
+</section>
+<section class="view" id="imoveis">
+<div class="section-title"><div><h2>Imóveis</h2><p class="kicker">Cadastre, edite, destaque e controle a publicação.</p></div><button class="btn btn-primary" id="addProperty">+ Cadastrar imóvel</button></div>
+<div class="toolbar"><input class="search" id="propertySearch" placeholder="Buscar por título, bairro ou referência..."><select class="search" id="statusFilter" style="max-width:180px"><option value="all">Todos os status</option><option value="Publicado">Publicado</option><option value="Rascunho">Rascunho</option><option value="Inativo">Inativo</option></select><select class="search" id="purposeFilter" style="max-width:170px"><option value="all">Todas finalidades</option><option>Venda</option><option>Aluguel</option></select></div>
+<div class="properties-grid" id="propertiesGrid"></div>
+</section>
+<section class="view" id="leads">
+<div class="section-title"><div><h2>Leads</h2><p class="kicker">Funil simples para não perder nenhum interessado.</p></div><button class="btn btn-light" id="seedLead">+ Lead teste</button></div>
+<div class="lead-board" id="leadBoard"></div>
+</section>
+<section class="view" id="regioes">
+<div class="section-title"><div><h2>Regiões e bairros</h2><p class="kicker">Controle o que poderá aparecer como região de busca e destaque.</p></div><button class="btn btn-primary" id="addRegion">+ Adicionar região</button></div>
+<div class="panel"><div id="regionsList"></div></div>
+</section>
+<section class="view" id="config">
+<div class="section-title"><div><h2>Configurações da imobiliária</h2><p class="kicker">Dados institucionais usados pelo site e atendimento.</p></div></div>
+<div class="panel settings-block"><div class="form-grid">
+<div class="field"><label>Nome da imobiliária</label><input id="cfgName"></div>
+<div class="field"><label>CRECI</label><input id="cfgCreci"></div>
+<div class="field"><label>WhatsApp</label><input id="cfgWhatsapp" placeholder="5577999999999"></div>
+<div class="field"><label>Instagram</label><input id="cfgInstagram" placeholder="@torquatoimoveis"></div>
+<div class="field"><label>E-mail</label><input id="cfgEmail" placeholder="contato@torquatoimoveis.com.br"></div>
+<div class="field"><label>Horário de atendimento</label><input id="cfgHours" placeholder="Seg a sáb • 8h às 18h"></div>
+<div class="field full"><label>Endereço</label><input id="cfgAddress" placeholder="Endereço da imobiliária"></div>
+<div class="field full"><label>Texto institucional</label><textarea id="cfgAbout"></textarea></div>
+</div><div style="margin-top:16px"><button class="btn btn-primary" id="saveSettings">Salvar configurações</button></div></div>
+</section>
+</div>
+</main>
+</div>
+<div class="modal" id="propertyModal"><div class="modal-card"><div class="modal-head"><div><h3 id="modalTitle">Novo imóvel</h3><p class="kicker">Preencha o cadastro em três etapas.</p></div><button class="close" id="closeModal">×</button></div>
+<div class="steps"><button class="step active" type="button" data-step="1">1. Informações</button><button class="step" type="button" data-step="2">2. Detalhes</button><button class="step" type="button" data-step="3">3. Fotos e publicação</button></div>
+<form id="propertyForm"><input type="hidden" id="propertyId">
+<div class="form-step active" data-form-step="1"><div class="form-grid">
+<div class="field full"><label>Título</label><input id="pTitle" required placeholder="Ex: Casa moderna no Boa Vista"></div>
+<div class="field"><label>Referência</label><input id="pRef" placeholder="TQ007"></div>
+<div class="field"><label>Finalidade</label><select id="pPurpose"><option>Venda</option><option>Aluguel</option></select></div>
+<div class="field"><label>Tipo</label><select id="pType"><option>Casa</option><option>Apartamento</option><option>Terreno</option><option>Comercial</option><option>Rural</option></select></div>
+<div class="field"><label>Bairro / Região</label><input id="pRegion" placeholder="Boa Vista"></div>
+<div class="field"><label>Valor</label><input id="pPrice" type="number" min="0" placeholder="890000"></div>
+<div class="field"><label>Condomínio</label><input id="pCondo" type="number" min="0" placeholder="0"></div>
+<div class="field"><label>IPTU anual</label><input id="pIptu" type="number" min="0" placeholder="0"></div>
+</div></div>
+<div class="form-step" data-form-step="2"><div class="form-grid">
+<div class="field"><label>Quartos</label><input id="pRooms" type="number" min="0"></div>
+<div class="field"><label>Suítes</label><input id="pSuites" type="number" min="0"></div>
+<div class="field"><label>Banheiros</label><input id="pBaths" type="number" min="0"></div>
+<div class="field"><label>Vagas</label><input id="pParking" type="number" min="0"></div>
+<div class="field"><label>Área útil (m²)</label><input id="pArea" type="number" min="0"></div>
+<div class="field"><label>Área total (m²)</label><input id="pTotalArea" type="number" min="0"></div>
+<div class="field full"><label>Descrição</label><textarea id="pDescription" placeholder="Descreva os diferenciais do imóvel..."></textarea></div>
+<div class="field full"><label>Diferenciais</label><input id="pFeatures" placeholder="Piscina, área gourmet, varanda, planejados..."><div class="helper">Separe os itens por vírgula.</div></div>
+</div></div>
+<div class="form-step" data-form-step="3"><div class="form-grid">
+<div class="field"><label>Status</label><select id="pStatus"><option>Publicado</option><option>Rascunho</option><option>Inativo</option></select></div>
+<div class="field"><label>Destaque</label><select id="pFeatured"><option value="false">Normal</option><option value="true">Imóvel em destaque</option></select></div>
+<div class="field full"><label>Galeria de fotos</label><div class="gallery-box"><div class="gallery-row"><input id="pNewImage" placeholder="Cole a URL de uma foto"><button type="button" class="btn btn-light" id="addImageUrl">Adicionar</button></div><div class="helper">Nesta fase usamos URLs para validar a galeria. No banco, isso vira upload real de arquivos.</div><div class="gallery-list" id="galleryList"></div></div></div>
+</div></div>
+<div style="display:flex;justify-content:space-between;gap:10px;margin-top:20px"><button type="button" class="btn btn-light" id="prevStep">← Voltar</button><div style="display:flex;gap:10px"><button type="button" class="btn btn-light" id="cancelModal">Cancelar</button><button type="button" class="btn btn-primary" id="nextStep">Continuar →</button><button class="btn btn-primary" id="saveProperty" type="submit" style="display:none">Salvar imóvel</button></div></div>
+</form></div></div>
+<div class="modal" id="leadModal"><div class="modal-card lead-modal"><div class="modal-head"><div><h3 id="leadModalTitle">Lead</h3><p class="kicker">Detalhes do contato e interesse.</p></div><button class="close" id="closeLeadModal">×</button></div><div id="leadDetail"></div></div></div>
 <div class="toast" id="toast"></div>
 <script>
+const DEFAULT_IMAGE='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80';
 const seedProperties=[
-{id:'1',title:'Casa contemporânea com área gourmet',ref:'TQ001',status:'Publicado',purpose:'Venda',type:'Casa',region:'Residencial nobre',price:1490000,rooms:3,baths:4,parking:2,image:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',description:'',featured:true},
-{id:'2',title:'Apartamento amplo e sofisticado',ref:'TQ002',status:'Publicado',purpose:'Venda',type:'Apartamento',region:'Centro',price:890000,rooms:3,baths:2,parking:2,image:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80',description:'',featured:false},
-{id:'3',title:'Casa com jardim e integração total',ref:'TQ003',status:'Rascunho',purpose:'Venda',type:'Casa',region:'Condomínio',price:1790000,rooms:4,baths:4,parking:3,image:'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80',description:'',featured:true}
+{id:'1',title:'Casa contemporânea com área gourmet',ref:'TQ001',status:'Publicado',purpose:'Venda',type:'Casa',region:'Boa Vista',price:1490000,condo:0,iptu:1800,rooms:3,suites:3,baths:4,parking:2,area:230,totalArea:360,images:['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80'],description:'Casa contemporânea com integração entre área social e gourmet.',features:['Área gourmet','Jardim','Planejados'],featured:true},
+{id:'2',title:'Apartamento amplo e sofisticado',ref:'TQ002',status:'Publicado',purpose:'Venda',type:'Apartamento',region:'Candeias',price:890000,condo:650,iptu:1200,rooms:3,suites:1,baths:2,parking:2,area:128,totalArea:128,images:['https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80'],description:'',features:['Varanda','Elevador'],featured:false},
+{id:'3',title:'Casa com jardim e integração total',ref:'TQ003',status:'Rascunho',purpose:'Venda',type:'Casa',region:'Candeias',price:1790000,condo:0,iptu:2100,rooms:4,suites:2,baths:4,parking:3,area:290,totalArea:480,images:['https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80'],description:'',features:['Jardim','Home office'],featured:true}
 ];
 const seedLeads=[
-{id:'l1',name:'Mariana Souza',contact:'WhatsApp • Casa até R$ 1,5 mi',status:'Novo'},
-{id:'l2',name:'Carlos Andrade',contact:'Site • Apartamento 3 quartos',status:'Em atendimento'},
-{id:'l3',name:'Ana Ribeiro',contact:'WhatsApp • TQ001',status:'Visita marcada'}
+{id:'l1',name:'Mariana Souza',phone:'5577999991001',email:'',source:'WhatsApp',interest:'Casa até R$ 1,5 mi',property:'',notes:'Procura imóvel para mudança em até 60 dias.',status:'Novo'},
+{id:'l2',name:'Carlos Andrade',phone:'5577999991002',email:'carlos@email.com',source:'Site',interest:'Apartamento 3 quartos',property:'TQ002',notes:'',status:'Em atendimento'},
+{id:'l3',name:'Ana Ribeiro',phone:'5577999991003',email:'',source:'WhatsApp',interest:'Casa',property:'TQ001',notes:'Visita agendada para sábado.',status:'Visita marcada'}
 ];
-const seedRegions=['Boa Vista','Candeias','Recreio','Centro'];
+const seedRegions=[{name:'Boa Vista',featured:true},{name:'Candeias',featured:true},{name:'Recreio',featured:false},{name:'Centro',featured:false}];
 let properties=JSON.parse(localStorage.getItem('torquato.properties')||'null')||seedProperties;
+properties=properties.map(p=>({...p,images:p.images?.length?p.images:(p.image?[p.image]:[]),features:Array.isArray(p.features)?p.features:[]}));
 let leads=JSON.parse(localStorage.getItem('torquato.leads')||'null')||seedLeads;
-let regions=JSON.parse(localStorage.getItem('torquato.regions')||'null')||seedRegions;
+let regionsRaw=JSON.parse(localStorage.getItem('torquato.regions')||'null')||seedRegions;
+let regions=regionsRaw.map(r=>typeof r==='string'?{name:r,featured:false}:r);
 let settings=JSON.parse(localStorage.getItem('torquato.settings')||'{}');
+let galleryDraft=[];let currentStep=1;
 const statuses=['Novo','Em atendimento','Visita marcada','Fechado'];
-function save(){localStorage.setItem('torquato.properties',JSON.stringify(properties));localStorage.setItem('torquato.leads',JSON.stringify(leads));localStorage.setItem('torquato.regions',JSON.stringify(regions));renderAll()}
+function persist(){localStorage.setItem('torquato.properties',JSON.stringify(properties));localStorage.setItem('torquato.leads',JSON.stringify(leads));localStorage.setItem('torquato.regions',JSON.stringify(regions));}
+function save(){persist();renderAll()}
 function money(v){return Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0})}
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
 function go(view){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(view).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));document.getElementById('pageTitle').textContent={dashboard:'Dashboard',imoveis:'Imóveis',leads:'Leads',regioes:'Regiões',config:'Configurações'}[view]}
 document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>go(b.dataset.view));document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
 function badge(s){return `<span class="badge ${s==='Publicado'?'live':s==='Rascunho'?'draft':'off'}">${s}</span>`}
-function renderDashboard(){document.getElementById('mProperties').textContent=properties.length;document.getElementById('mLive').textContent=properties.filter(p=>p.status==='Publicado').length;document.getElementById('mLeads').textContent=leads.length;document.getElementById('mVisits').textContent=leads.filter(l=>l.status==='Visita marcada').length;document.getElementById('recentProperties').innerHTML=properties.slice(-5).reverse().map(p=>`<tr><td><strong>${p.title}</strong><br><small style="color:#8a95a5">${p.ref||''}</small></td><td>${badge(p.status)}</td><td>${money(p.price)}</td></tr>`).join('')||'<tr><td colspan="3" class="empty">Nenhum imóvel</td></tr>';document.getElementById('recentLeads').innerHTML=leads.slice(-4).reverse().map(l=>`<div class="lead"><strong>${l.name}</strong><p>${l.contact}</p><span class="badge ${l.status==='Fechado'?'live':'draft'}">${l.status}</span></div>`).join('')||'<div class="empty">Nenhum lead</div>'}
-function renderProperties(){const q=document.getElementById('propertySearch').value.toLowerCase();const f=document.getElementById('statusFilter').value;const list=properties.filter(p=>(f==='all'||p.status===f)&&(`${p.title} ${p.region} ${p.ref}`).toLowerCase().includes(q));document.getElementById('propertiesGrid').innerHTML=list.map(p=>`<article class="property"><img src="${p.image||'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80'}" alt=""><div class="property-body"><div style="display:flex;justify-content:space-between;gap:8px">${badge(p.status)}${p.featured?'<span class="badge live">Destaque</span>':''}</div><h3>${p.title}</h3><p>${p.region||'Sem região'} • ${p.ref||'Sem ref.'}</p><div class="price">${money(p.price)}</div><div class="property-actions"><button class="small-btn" onclick="editProperty('${p.id}')">Editar</button><button class="small-btn" onclick="toggleProperty('${p.id}')">${p.status==='Publicado'?'Despublicar':'Publicar'}</button><button class="small-btn" onclick="deleteProperty('${p.id}')">Excluir</button></div></div></article>`).join('')||'<div class="empty">Nenhum imóvel encontrado.</div>'}
-function renderLeads(){document.getElementById('leadBoard').innerHTML=statuses.map(status=>`<div class="column"><h3>${status} <span style="color:#8b96a6">(${leads.filter(l=>l.status===status).length})</span></h3>${leads.filter(l=>l.status===status).map(l=>`<div class="lead"><strong>${l.name}</strong><p>${l.contact}</p><select onchange="moveLead('${l.id}',this.value)">${statuses.map(s=>`<option ${s===l.status?'selected':''}>${s}</option>`).join('')}</select></div>`).join('')}</div>`).join('')}
-function renderRegions(){document.getElementById('regionsList').innerHTML=regions.map((r,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:13px 5px;border-bottom:1px solid #e6ebf2"><strong>${r}</strong><button class="small-btn" onclick="removeRegion(${i})">Remover</button></div>`).join('')||'<div class="empty">Nenhuma região cadastrada.</div>'}
+function renderDashboard(){mProperties.textContent=properties.length;mLive.textContent=properties.filter(p=>p.status==='Publicado').length;mLeads.textContent=leads.length;mVisits.textContent=leads.filter(l=>l.status==='Visita marcada').length;recentProperties.innerHTML=properties.slice(-5).reverse().map(p=>`<tr><td><strong>${p.title}</strong><br><small style="color:#8a95a5">${p.ref||''} • ${p.region||''}</small></td><td>${badge(p.status)}</td><td>${money(p.price)}</td></tr>`).join('')||'<tr><td colspan="3" class="empty">Nenhum imóvel</td></tr>';recentLeads.innerHTML=leads.slice(-4).reverse().map(l=>`<div class="lead" onclick="openLead('${l.id}')" style="cursor:pointer"><strong>${l.name}</strong><p>${l.source||'Contato'} • ${l.interest||''}</p><span class="badge ${l.status==='Fechado'?'live':'draft'}">${l.status}</span></div>`).join('')||'<div class="empty">Nenhum lead</div>'}
+function renderProperties(){const q=propertySearch.value.toLowerCase();const f=statusFilter.value;const pf=purposeFilter.value;const list=properties.filter(p=>(f==='all'||p.status===f)&&(pf==='all'||p.purpose===pf)&&(`${p.title} ${p.region} ${p.ref}`).toLowerCase().includes(q));propertiesGrid.innerHTML=list.map(p=>`<article class="property"><div class="property-cover"><img src="${p.images?.[0]||DEFAULT_IMAGE}" alt=""><span class="property-count">${p.images?.length||0} foto(s)</span></div><div class="property-body"><div style="display:flex;justify-content:space-between;gap:8px">${badge(p.status)}${p.featured?'<span class="badge blue">Destaque</span>':''}</div><h3>${p.title}</h3><p>${p.type||''} • ${p.region||'Sem região'} • ${p.ref||'Sem ref.'}</p><div class="price">${money(p.price)}</div><div class="property-actions"><button class="small-btn" onclick="editProperty('${p.id}')">Editar</button><button class="small-btn" onclick="toggleProperty('${p.id}')">${p.status==='Publicado'?'Despublicar':'Publicar'}</button><button class="small-btn" onclick="duplicateProperty('${p.id}')">Duplicar</button><button class="small-btn" onclick="deleteProperty('${p.id}')">Excluir</button></div></div></article>`).join('')||'<div class="empty">Nenhum imóvel encontrado.</div>'}
+function renderLeads(){leadBoard.innerHTML=statuses.map(status=>`<div class="column"><h3>${status} <span style="color:#8b96a6">(${leads.filter(l=>l.status===status).length})</span></h3>${leads.filter(l=>l.status===status).map(l=>`<div class="lead"><strong>${l.name}</strong><p>${l.source||'Contato'} • ${l.interest||''}</p><select onchange="moveLead('${l.id}',this.value)">${statuses.map(s=>`<option ${s===l.status?'selected':''}>${s}</option>`).join('')}</select><div class="lead-actions"><button class="small-btn" onclick="openLead('${l.id}')">Abrir</button><button class="small-btn" onclick="whatsappLead('${l.id}')">WhatsApp</button></div></div>`).join('')}</div>`).join('')}
+function renderRegions(){regionsList.innerHTML=regions.map((r,i)=>`<div class="region-row"><div class="region-meta"><strong>${r.name}</strong>${r.featured?'<span class="badge blue">Destaque</span>':''}</div><div style="display:flex;align-items:center;gap:10px"><span style="font-size:11px;color:var(--muted)">Destaque</span><div class="switch ${r.featured?'on':''}" onclick="toggleRegionFeatured(${i})"></div><button class="small-btn" onclick="renameRegion(${i})">Editar</button><button class="small-btn" onclick="removeRegion(${i})">Remover</button></div></div>`).join('')||'<div class="empty">Nenhuma região cadastrada.</div>'}
 function renderAll(){renderDashboard();renderProperties();renderLeads();renderRegions()}
-function openModal(p=null){document.getElementById('propertyModal').classList.add('show');document.getElementById('modalTitle').textContent=p?'Editar imóvel':'Novo imóvel';['Id','Title','Ref','Region','Price','Rooms','Baths','Parking','Image','Description'].forEach(k=>{const el=document.getElementById('p'+k);if(el)el.value=p?(p[k.charAt(0).toLowerCase()+k.slice(1)]??''):''});document.getElementById('pStatus').value=p?p.status:'Publicado';document.getElementById('pPurpose').value=p?p.purpose:'Venda';document.getElementById('pType').value=p?p.type:'Casa';document.getElementById('pFeatured').checked=!!(p&&p.featured)}
-function closeModal(){document.getElementById('propertyModal').classList.remove('show')}
+function setStep(n){currentStep=Math.max(1,Math.min(3,n));document.querySelectorAll('.step').forEach(s=>s.classList.toggle('active',Number(s.dataset.step)===currentStep));document.querySelectorAll('.form-step').forEach(s=>s.classList.toggle('active',Number(s.dataset.formStep)===currentStep));prevStep.style.visibility=currentStep===1?'hidden':'visible';nextStep.style.display=currentStep===3?'none':'inline-block';saveProperty.style.display=currentStep===3?'inline-block':'none'}
+document.querySelectorAll('.step').forEach(s=>s.onclick=()=>setStep(Number(s.dataset.step)));nextStep.onclick=()=>setStep(currentStep+1);prevStep.onclick=()=>setStep(currentStep-1);
+function renderGallery(){galleryList.innerHTML=galleryDraft.map((url,i)=>`<div class="gallery-item"><img src="${url}" alt=""><button type="button" onclick="removeImage(${i})">×</button></div>`).join('')||'<div class="helper">Nenhuma foto adicionada.</div>'}
+function removeImage(i){galleryDraft.splice(i,1);renderGallery()}
+addImageUrl.onclick=()=>{const url=pNewImage.value.trim();if(!url)return;galleryDraft.push(url);pNewImage.value='';renderGallery()};
+function openModal(p=null){propertyModal.classList.add('show');modalTitle.textContent=p?'Editar imóvel':'Novo imóvel';propertyId.value=p?.id||'';pTitle.value=p?.title||'';pRef.value=p?.ref||'';pPurpose.value=p?.purpose||'Venda';pType.value=p?.type||'Casa';pRegion.value=p?.region||'';pPrice.value=p?.price||'';pCondo.value=p?.condo||'';pIptu.value=p?.iptu||'';pRooms.value=p?.rooms||'';pSuites.value=p?.suites||'';pBaths.value=p?.baths||'';pParking.value=p?.parking||'';pArea.value=p?.area||'';pTotalArea.value=p?.totalArea||'';pDescription.value=p?.description||'';pFeatures.value=(p?.features||[]).join(', ');pStatus.value=p?.status||'Publicado';pFeatured.value=String(!!p?.featured);galleryDraft=[...(p?.images||[])];renderGallery();setStep(1)}
+function closeModal(){propertyModal.classList.remove('show')}
 function editProperty(id){openModal(properties.find(p=>p.id===id))}
 function toggleProperty(id){const p=properties.find(p=>p.id===id);p.status=p.status==='Publicado'?'Inativo':'Publicado';save();toast('Status atualizado')}
+function duplicateProperty(id){const p=properties.find(p=>p.id===id);properties.push({...p,id:Date.now().toString(),ref:(p.ref||'')+'-C',title:p.title+' — cópia',status:'Rascunho'});save();toast('Imóvel duplicado como rascunho')}
 function deleteProperty(id){if(confirm('Excluir este imóvel?')){properties=properties.filter(p=>p.id!==id);save();toast('Imóvel excluído')}}
 function moveLead(id,status){const l=leads.find(l=>l.id===id);l.status=status;save();toast('Lead movido')}
-function removeRegion(i){regions.splice(i,1);save()}
-document.getElementById('propertyForm').onsubmit=e=>{e.preventDefault();const id=document.getElementById('propertyId').value||Date.now().toString();const p={id,title:pTitle.value,ref:pRef.value,status:pStatus.value,purpose:pPurpose.value,type:pType.value,region:pRegion.value,price:Number(pPrice.value||0),rooms:Number(pRooms.value||0),baths:Number(pBaths.value||0),parking:Number(pParking.value||0),image:pImage.value,description:pDescription.value,featured:pFeatured.checked};const idx=properties.findIndex(x=>x.id===id);if(idx>=0)properties[idx]=p;else properties.push(p);save();closeModal();toast('Imóvel salvo')};
-['quickAdd','addProperty'].forEach(id=>document.getElementById(id).onclick=()=>openModal());document.getElementById('closeModal').onclick=closeModal;document.getElementById('cancelModal').onclick=closeModal;document.getElementById('propertySearch').oninput=renderProperties;document.getElementById('statusFilter').onchange=renderProperties;document.getElementById('seedLead').onclick=()=>{leads.push({id:Date.now().toString(),name:'Novo contato',contact:'Site • interesse em imóvel',status:'Novo'});save();toast('Lead teste criado')};document.getElementById('addRegion').onclick=()=>{const r=prompt('Nome da região ou bairro:');if(r){regions.push(r);save();toast('Região adicionada')}};
-function loadSettings(){cfgName.value=settings.name||'Torquato Imóveis';cfgCreci.value=settings.creci||'CRECI-PJ: 2110';cfgWhatsapp.value=settings.whatsapp||'';cfgInstagram.value=settings.instagram||'';cfgAddress.value=settings.address||'';cfgAbout.value=settings.about||'Curadoria, proximidade e negociação segura.'}document.getElementById('saveSettings').onclick=()=>{settings={name:cfgName.value,creci:cfgCreci.value,whatsapp:cfgWhatsapp.value,instagram:cfgInstagram.value,address:cfgAddress.value,about:cfgAbout.value};localStorage.setItem('torquato.settings',JSON.stringify(settings));toast('Configurações salvas')};loadSettings();renderAll();
+function openLead(id){const l=leads.find(x=>x.id===id);if(!l)return;leadModalTitle.textContent=l.name;leadDetail.innerHTML=`<div class="lead-detail-grid"><div><small>Status</small><strong>${l.status}</strong></div><div><small>Origem</small><strong>${l.source||'-'}</strong></div><div><small>Telefone</small><strong>${l.phone||'-'}</strong></div><div><small>E-mail</small><strong>${l.email||'-'}</strong></div><div><small>Interesse</small><strong>${l.interest||'-'}</strong></div><div><small>Imóvel</small><strong>${l.property||'-'}</strong></div></div><div style="margin-top:12px;background:#f7f9fc;border-radius:12px;padding:12px"><small style="display:block;color:var(--muted);font-size:11px;margin-bottom:5px">Observações</small><div style="font-size:13px;line-height:1.6">${l.notes||'Sem observações.'}</div></div><div style="display:flex;gap:8px;margin-top:14px"><button class="btn btn-primary" onclick="whatsappLead('${l.id}')">Abrir WhatsApp</button><button class="btn btn-light" onclick="closeLeadModal()">Fechar</button></div>`;leadModal.classList.add('show')}
+function closeLeadModal(){leadModal.classList.remove('show')}
+function whatsappLead(id){const l=leads.find(x=>x.id===id);if(!l?.phone){toast('Lead sem telefone');return}window.open(`https://wa.me/${String(l.phone).replace(/\D/g,'')}`,'_blank')}
+function removeRegion(i){if(confirm('Remover esta região?')){regions.splice(i,1);save()}}
+function renameRegion(i){const n=prompt('Nome da região:',regions[i].name);if(n){regions[i].name=n;save()}}
+function toggleRegionFeatured(i){regions[i].featured=!regions[i].featured;save()}
+propertyForm.onsubmit=e=>{e.preventDefault();const id=propertyId.value||Date.now().toString();const p={id,title:pTitle.value,ref:pRef.value,status:pStatus.value,purpose:pPurpose.value,type:pType.value,region:pRegion.value,price:Number(pPrice.value||0),condo:Number(pCondo.value||0),iptu:Number(pIptu.value||0),rooms:Number(pRooms.value||0),suites:Number(pSuites.value||0),baths:Number(pBaths.value||0),parking:Number(pParking.value||0),area:Number(pArea.value||0),totalArea:Number(pTotalArea.value||0),images:[...galleryDraft],description:pDescription.value,features:pFeatures.value.split(',').map(x=>x.trim()).filter(Boolean),featured:pFeatured.value==='true'};const idx=properties.findIndex(x=>x.id===id);if(idx>=0)properties[idx]=p;else properties.push(p);save();closeModal();toast('Imóvel salvo')};
+['quickAdd','addProperty'].forEach(id=>document.getElementById(id).onclick=()=>openModal());closeModal.onclick=undefined;document.getElementById('closeModal').onclick=closeModal;cancelModal.onclick=closeModal;propertySearch.oninput=renderProperties;statusFilter.onchange=renderProperties;purposeFilter.onchange=renderProperties;closeLeadModal.onclick=closeLeadModal;
+seedLead.onclick=()=>{leads.push({id:Date.now().toString(),name:'Novo contato',phone:'5577999999999',email:'',source:'Site',interest:'Interesse em imóvel',property:'',notes:'Lead criado para teste do funil.',status:'Novo'});save();toast('Lead teste criado')};
+addRegion.onclick=()=>{const r=prompt('Nome da região ou bairro:');if(r){regions.push({name:r,featured:false});save();toast('Região adicionada')}};
+function loadSettings(){cfgName.value=settings.name||'Torquato Imóveis';cfgCreci.value=settings.creci||'CRECI-PJ: 2110';cfgWhatsapp.value=settings.whatsapp||'';cfgInstagram.value=settings.instagram||'';cfgEmail.value=settings.email||'';cfgHours.value=settings.hours||'';cfgAddress.value=settings.address||'';cfgAbout.value=settings.about||'Curadoria, proximidade e negociação segura.'}
+saveSettings.onclick=()=>{settings={name:cfgName.value,creci:cfgCreci.value,whatsapp:cfgWhatsapp.value,instagram:cfgInstagram.value,email:cfgEmail.value,hours:cfgHours.value,address:cfgAddress.value,about:cfgAbout.value};localStorage.setItem('torquato.settings',JSON.stringify(settings));toast('Configurações salvas')};
+loadSettings();renderAll();
 </script>
 </body>
 </html>
