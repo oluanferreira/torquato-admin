@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#285EA7" />
+  <title>Torquato Imóveis — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--primary:#285EA7;--primary-dark:#1f4b87;--bg:#f4f7fb;--panel:#fff;--text:#152033;--muted:#7d8898;--line:#e6ebf2;--success:#1f9d65;--warn:#d88a16;--danger:#d94b4b;--shadow:0 14px 40px rgba(30,55,90,.08)}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;background:#fff;border-right:1px solid var(--line);padding:26px 18px;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;padding:0 10px 26px}.brand-mark{width:42px;height:42px;border-radius:14px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800}.brand strong{display:block}.brand small{color:var(--muted)}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;text-align:left;padding:13px 14px;border-radius:12px;color:#5d6878;font-weight:600}.nav button.active,.nav button:hover{background:#edf4fc;color:var(--primary)}.nav button span{display:inline-block;width:24px}.side-bottom{margin-top:auto;padding:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.main{min-width:0}.topbar{height:76px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:20}.topbar h1{font-size:20px;margin:0}.top-actions{display:flex;align-items:center;gap:10px}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:700}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}.btn-light{background:#fff;color:var(--text);border:1px solid var(--line)}.content{padding:28px}.view{display:none}.view.active{display:block}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.metric{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.metric small{color:var(--muted);font-weight:600}.metric strong{font-size:30px;display:block;margin:8px 0 4px}.metric em{font-style:normal;color:var(--success);font-size:12px}.grid-2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.panel-head h2{font-size:17px;margin:0}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}.table th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em}.badge{display:inline-flex;padding:6px 9px;border-radius:999px;font-size:11px;font-weight:700}.badge.live{background:#e8f7ef;color:var(--success)}.badge.draft{background:#fff5e5;color:var(--warn)}.badge.off{background:#f2f3f5;color:#7d8898}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.section-title h2{margin:0;font-size:24px}.toolbar{display:flex;gap:10px;margin-bottom:16px}.search{flex:1;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 13px}.properties-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.property{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.property img{width:100%;height:160px;object-fit:cover}.property-body{padding:15px}.property h3{font-size:15px;margin:0 0 8px}.property p{color:var(--muted);font-size:12px;margin:0 0 10px}.property .price{font-weight:800;color:var(--primary)}.property-actions{display:flex;gap:8px;margin-top:13px}.small-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:12px;font-weight:700}.lead-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.column{background:#eef2f7;border-radius:16px;padding:12px;min-height:420px}.column h3{font-size:13px;margin:3px 3px 10px}.lead{background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;border:1px solid var(--line)}.lead strong{font-size:13px}.lead p{font-size:12px;color:var(--muted);margin:6px 0}.lead select{width:100%;border:1px solid var(--line);border-radius:8px;padding:7px;font-size:11px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;background:#fff}.field.full{grid-column:1/-1}.field textarea{min-height:100px;resize:vertical}.settings-block{max-width:760px}.modal{position:fixed;inset:0;background:rgba(10,25,45,.42);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}.modal.show{display:flex}.modal-card{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:22px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modal-head h3{margin:0}.close{border:0;background:#f1f4f8;width:34px;height:34px;border-radius:10px}.empty{padding:28px;text-align:center;color:var(--muted)}.toast{position:fixed;right:22px;bottom:22px;background:#152033;color:#fff;padding:12px 16px;border-radius:12px;opacity:0;transform:translateY(10px);transition:.2s;z-index:200}.toast.show{opacity:1;transform:none}@media(max-width:1100px){.cards{grid-template-columns:1fr 1fr}.properties-grid{grid-template-columns:1fr 1fr}.lead-board{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}}@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{height:auto;position:static;border-right:0}.nav{grid-template-columns:repeat(3,1fr)}.nav button{font-size:12px}.side-bottom{display:none}.topbar{position:static}.cards,.properties-grid,.lead-board,.form-grid{grid-template-columns:1fr}.content{padding:18px}.field.full{grid-column:auto}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">T</div><div><strong>TORQUATO</strong><small>Admin imobiliário</small></div></div>
+    <nav class="nav">
+      <button class="active" data-view="dashboard"><span>⌂</span>Dashboard</button>
+      <button data-view="imoveis"><span>▦</span>Imóveis</button>
+      <button data-view="leads"><span>◎</span>Leads</button>
+      <button data-view="regioes"><span>⌖</span>Regiões</button>
+      <button data-view="config"><span>⚙</span>Configurações</button>
+    </nav>
+    <div class="side-bottom">MVP administrativo • dados salvos neste navegador até a conexão com Supabase.</div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><h1 id="pageTitle">Dashboard</h1><div class="top-actions"><button class="btn btn-light" onclick="window.open('https://torquato-imoveis.vercel.app','_blank')">Ver site</button><button class="btn btn-primary" id="quickAdd">+ Novo imóvel</button></div></header>
+    <div class="content">
+      <section class="view active" id="dashboard">
+        <div class="cards">
+          <div class="metric"><small>Imóveis cadastrados</small><strong id="mProperties">0</strong><em>base ativa</em></div>
+          <div class="metric"><small>Publicados</small><strong id="mLive">0</strong><em>visíveis no site</em></div>
+          <div class="metric"><small>Leads</small><strong id="mLeads">0</strong><em>contatos recebidos</em></div>
+          <div class="metric"><small>Visitas marcadas</small><strong id="mVisits">0</strong><em>oportunidades quentes</em></div>
+        </div>
+        <div class="grid-2">
+          <div class="panel"><div class="panel-head"><h2>Imóveis recentes</h2><button class="small-btn" data-go="imoveis">Ver todos</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Imóvel</th><th>Status</th><th>Valor</th></tr></thead><tbody id="recentProperties"></tbody></table></div></div>
+          <div class="panel"><div class="panel-head"><h2>Leads recentes</h2><button class="small-btn" data-go="leads">Ver funil</button></div><div id="recentLeads"></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="imoveis">
+        <div class="section-title"><h2>Imóveis</h2><button class="btn btn-primary" id="addProperty">+ Cadastrar imóvel</button></div>
+        <div class="toolbar"><input class="search" id="propertySearch" placeholder="Buscar por título, bairro ou referência..."><select class="search" id="statusFilter" style="max-width:180px"><option value="all">Todos os status</option><option value="Publicado">Publicado</option><option value="Rascunho">Rascunho</option><option value="Inativo">Inativo</option></select></div>
+        <div class="properties-grid" id="propertiesGrid"></div>
+      </section>
+
+      <section class="view" id="leads">
+        <div class="section-title"><h2>Leads</h2><button class="btn btn-light" id="seedLead">+ Lead teste</button></div>
+        <div class="lead-board" id="leadBoard"></div>
+      </section>
+
+      <section class="view" id="regioes">
+        <div class="section-title"><h2>Regiões e bairros</h2><button class="btn btn-primary" id="addRegion">+ Adicionar região</button></div>
+        <div class="panel"><div id="regionsList"></div></div>
+      </section>
+
+      <section class="view" id="config">
+        <div class="section-title"><h2>Configurações da imobiliária</h2></div>
+        <div class="panel settings-block"><div class="form-grid">
+          <div class="field"><label>Nome da imobiliária</label><input id="cfgName" value="Torquato Imóveis"></div>
+          <div class="field"><label>CRECI</label><input id="cfgCreci" value="CRECI-PJ: 2110"></div>
+          <div class="field"><label>WhatsApp</label><input id="cfgWhatsapp" placeholder="55 77 99999-9999"></div>
+          <div class="field"><label>Instagram</label><input id="cfgInstagram" placeholder="@torquatoimoveis"></div>
+          <div class="field full"><label>Endereço</label><input id="cfgAddress" placeholder="Endereço da imobiliária"></div>
+          <div class="field full"><label>Texto institucional</label><textarea id="cfgAbout">Curadoria, proximidade e negociação segura.</textarea></div>
+        </div><div style="margin-top:16px"><button class="btn btn-primary" id="saveSettings">Salvar configurações</button></div></div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="modal" id="propertyModal"><div class="modal-card"><div class="modal-head"><h3 id="modalTitle">Novo imóvel</h3><button class="close" id="closeModal">×</button></div><form id="propertyForm"><input type="hidden" id="propertyId"><div class="form-grid">
+  <div class="field full"><label>Título</label><input id="pTitle" required placeholder="Ex: Casa moderna no Boa Vista"></div>
+  <div class="field"><label>Referência</label><input id="pRef" placeholder="TQ007"></div>
+  <div class="field"><label>Status</label><select id="pStatus"><option>Publicado</option><option>Rascunho</option><option>Inativo</option></select></div>
+  <div class="field"><label>Finalidade</label><select id="pPurpose"><option>Venda</option><option>Aluguel</option></select></div>
+  <div class="field"><label>Tipo</label><select id="pType"><option>Casa</option><option>Apartamento</option><option>Terreno</option><option>Comercial</option></select></div>
+  <div class="field"><label>Bairro / Região</label><input id="pRegion" placeholder="Boa Vista"></div>
+  <div class="field"><label>Valor</label><input id="pPrice" type="number" min="0" placeholder="890000"></div>
+  <div class="field"><label>Quartos</label><input id="pRooms" type="number" min="0"></div>
+  <div class="field"><label>Banheiros</label><input id="pBaths" type="number" min="0"></div>
+  <div class="field"><label>Vagas</label><input id="pParking" type="number" min="0"></div>
+  <div class="field full"><label>URL da foto principal</label><input id="pImage" placeholder="https://..."></div>
+  <div class="field full"><label>Descrição</label><textarea id="pDescription"></textarea></div>
+  <div class="field"><label><input type="checkbox" id="pFeatured" style="width:auto"> Marcar como destaque</label></div>
+</div><div style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px"><button type="button" class="btn btn-light" id="cancelModal">Cancelar</button><button class="btn btn-primary" type="submit">Salvar imóvel</button></div></form></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const seedProperties=[
+{id:'1',title:'Casa contemporânea com área gourmet',ref:'TQ001',status:'Publicado',purpose:'Venda',type:'Casa',region:'Residencial nobre',price:1490000,rooms:3,baths:4,parking:2,image:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',description:'',featured:true},
+{id:'2',title:'Apartamento amplo e sofisticado',ref:'TQ002',status:'Publicado',purpose:'Venda',type:'Apartamento',region:'Centro',price:890000,rooms:3,baths:2,parking:2,image:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80',description:'',featured:false},
+{id:'3',title:'Casa com jardim e integração total',ref:'TQ003',status:'Rascunho',purpose:'Venda',type:'Casa',region:'Condomínio',price:1790000,rooms:4,baths:4,parking:3,image:'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80',description:'',featured:true}
+];
+const seedLeads=[
+{id:'l1',name:'Mariana Souza',contact:'WhatsApp • Casa até R$ 1,5 mi',status:'Novo'},
+{id:'l2',name:'Carlos Andrade',contact:'Site • Apartamento 3 quartos',status:'Em atendimento'},
+{id:'l3',name:'Ana Ribeiro',contact:'WhatsApp • TQ001',status:'Visita marcada'}
+];
+const seedRegions=['Boa Vista','Candeias','Recreio','Centro'];
+let properties=JSON.parse(localStorage.getItem('torquato.properties')||'null')||seedProperties;
+let leads=JSON.parse(localStorage.getItem('torquato.leads')||'null')||seedLeads;
+let regions=JSON.parse(localStorage.getItem('torquato.regions')||'null')||seedRegions;
+let settings=JSON.parse(localStorage.getItem('torquato.settings')||'{}');
+const statuses=['Novo','Em atendimento','Visita marcada','Fechado'];
+function save(){localStorage.setItem('torquato.properties',JSON.stringify(properties));localStorage.setItem('torquato.leads',JSON.stringify(leads));localStorage.setItem('torquato.regions',JSON.stringify(regions));renderAll()}
+function money(v){return Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0})}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function go(view){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(view).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));document.getElementById('pageTitle').textContent={dashboard:'Dashboard',imoveis:'Imóveis',leads:'Leads',regioes:'Regiões',config:'Configurações'}[view]}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>go(b.dataset.view));document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+function badge(s){return `<span class="badge ${s==='Publicado'?'live':s==='Rascunho'?'draft':'off'}">${s}</span>`}
+function renderDashboard(){document.getElementById('mProperties').textContent=properties.length;document.getElementById('mLive').textContent=properties.filter(p=>p.status==='Publicado').length;document.getElementById('mLeads').textContent=leads.length;document.getElementById('mVisits').textContent=leads.filter(l=>l.status==='Visita marcada').length;document.getElementById('recentProperties').innerHTML=properties.slice(-5).reverse().map(p=>`<tr><td><strong>${p.title}</strong><br><small style="color:#8a95a5">${p.ref||''}</small></td><td>${badge(p.status)}</td><td>${money(p.price)}</td></tr>`).join('')||'<tr><td colspan="3" class="empty">Nenhum imóvel</td></tr>';document.getElementById('recentLeads').innerHTML=leads.slice(-4).reverse().map(l=>`<div class="lead"><strong>${l.name}</strong><p>${l.contact}</p><span class="badge ${l.status==='Fechado'?'live':'draft'}">${l.status}</span></div>`).join('')||'<div class="empty">Nenhum lead</div>'}
+function renderProperties(){const q=document.getElementById('propertySearch').value.toLowerCase();const f=document.getElementById('statusFilter').value;const list=properties.filter(p=>(f==='all'||p.status===f)&&(`${p.title} ${p.region} ${p.ref}`).toLowerCase().includes(q));document.getElementById('propertiesGrid').innerHTML=list.map(p=>`<article class="property"><img src="${p.image||'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80'}" alt=""><div class="property-body"><div style="display:flex;justify-content:space-between;gap:8px">${badge(p.status)}${p.featured?'<span class="badge live">Destaque</span>':''}</div><h3>${p.title}</h3><p>${p.region||'Sem região'} • ${p.ref||'Sem ref.'}</p><div class="price">${money(p.price)}</div><div class="property-actions"><button class="small-btn" onclick="editProperty('${p.id}')">Editar</button><button class="small-btn" onclick="toggleProperty('${p.id}')">${p.status==='Publicado'?'Despublicar':'Publicar'}</button><button class="small-btn" onclick="deleteProperty('${p.id}')">Excluir</button></div></div></article>`).join('')||'<div class="empty">Nenhum imóvel encontrado.</div>'}
+function renderLeads(){document.getElementById('leadBoard').innerHTML=statuses.map(status=>`<div class="column"><h3>${status} <span style="color:#8b96a6">(${leads.filter(l=>l.status===status).length})</span></h3>${leads.filter(l=>l.status===status).map(l=>`<div class="lead"><strong>${l.name}</strong><p>${l.contact}</p><select onchange="moveLead('${l.id}',this.value)">${statuses.map(s=>`<option ${s===l.status?'selected':''}>${s}</option>`).join('')}</select></div>`).join('')}</div>`).join('')}
+function renderRegions(){document.getElementById('regionsList').innerHTML=regions.map((r,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:13px 5px;border-bottom:1px solid #e6ebf2"><strong>${r}</strong><button class="small-btn" onclick="removeRegion(${i})">Remover</button></div>`).join('')||'<div class="empty">Nenhuma região cadastrada.</div>'}
+function renderAll(){renderDashboard();renderProperties();renderLeads();renderRegions()}
+function openModal(p=null){document.getElementById('propertyModal').classList.add('show');document.getElementById('modalTitle').textContent=p?'Editar imóvel':'Novo imóvel';['Id','Title','Ref','Region','Price','Rooms','Baths','Parking','Image','Description'].forEach(k=>{const el=document.getElementById('p'+k);if(el)el.value=p?(p[k.charAt(0).toLowerCase()+k.slice(1)]??''):''});document.getElementById('pStatus').value=p?p.status:'Publicado';document.getElementById('pPurpose').value=p?p.purpose:'Venda';document.getElementById('pType').value=p?p.type:'Casa';document.getElementById('pFeatured').checked=!!(p&&p.featured)}
+function closeModal(){document.getElementById('propertyModal').classList.remove('show')}
+function editProperty(id){openModal(properties.find(p=>p.id===id))}
+function toggleProperty(id){const p=properties.find(p=>p.id===id);p.status=p.status==='Publicado'?'Inativo':'Publicado';save();toast('Status atualizado')}
+function deleteProperty(id){if(confirm('Excluir este imóvel?')){properties=properties.filter(p=>p.id!==id);save();toast('Imóvel excluído')}}
+function moveLead(id,status){const l=leads.find(l=>l.id===id);l.status=status;save();toast('Lead movido')}
+function removeRegion(i){regions.splice(i,1);save()}
+document.getElementById('propertyForm').onsubmit=e=>{e.preventDefault();const id=document.getElementById('propertyId').value||Date.now().toString();const p={id,title:pTitle.value,ref:pRef.value,status:pStatus.value,purpose:pPurpose.value,type:pType.value,region:pRegion.value,price:Number(pPrice.value||0),rooms:Number(pRooms.value||0),baths:Number(pBaths.value||0),parking:Number(pParking.value||0),image:pImage.value,description:pDescription.value,featured:pFeatured.checked};const idx=properties.findIndex(x=>x.id===id);if(idx>=0)properties[idx]=p;else properties.push(p);save();closeModal();toast('Imóvel salvo')};
+['quickAdd','addProperty'].forEach(id=>document.getElementById(id).onclick=()=>openModal());document.getElementById('closeModal').onclick=closeModal;document.getElementById('cancelModal').onclick=closeModal;document.getElementById('propertySearch').oninput=renderProperties;document.getElementById('statusFilter').onchange=renderProperties;document.getElementById('seedLead').onclick=()=>{leads.push({id:Date.now().toString(),name:'Novo contato',contact:'Site • interesse em imóvel',status:'Novo'});save();toast('Lead teste criado')};document.getElementById('addRegion').onclick=()=>{const r=prompt('Nome da região ou bairro:');if(r){regions.push(r);save();toast('Região adicionada')}};
+function loadSettings(){cfgName.value=settings.name||'Torquato Imóveis';cfgCreci.value=settings.creci||'CRECI-PJ: 2110';cfgWhatsapp.value=settings.whatsapp||'';cfgInstagram.value=settings.instagram||'';cfgAddress.value=settings.address||'';cfgAbout.value=settings.about||'Curadoria, proximidade e negociação segura.'}document.getElementById('saveSettings').onclick=()=>{settings={name:cfgName.value,creci:cfgCreci.value,whatsapp:cfgWhatsapp.value,instagram:cfgInstagram.value,address:cfgAddress.value,about:cfgAbout.value};localStorage.setItem('torquato.settings',JSON.stringify(settings));toast('Configurações salvas')};loadSettings();renderAll();
+</script>
+</body>
+</html>
